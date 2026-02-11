@@ -1,140 +1,251 @@
-'use client'
+"use client"
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import Link from 'next/link';
+import { 
+  BuildingLibraryIcon, 
+  ChartBarIcon, 
+  CloudIcon,
+  CalculatorIcon,
+  ArrowRightIcon 
+} from '@heroicons/react/24/outline';
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { Calculator, Cpu, TrendingUp, Settings, ArrowRight } from 'lucide-react'
+export default function Services() {
+  // Create refs for each service card and the footer CTA
+  const serviceRefs = useRef([useRef(null), useRef(null), useRef(null), useRef(null)]);
+  const headerRef = useRef(null);
+  const footerRef = useRef(null);
+  
+  // Track visibility for each element with threshold
+  const headerInView = useInView(headerRef, { 
+    once: true,
+    amount: 0.3
+  });
+  
+  const service1InView = useInView(serviceRefs.current[0], { 
+    once: true,
+    amount: 0.3
+  });
+  const service2InView = useInView(serviceRefs.current[1], { 
+    once: true,
+    amount: 0.3
+  });
+  const service3InView = useInView(serviceRefs.current[2], { 
+    once: true,
+    amount: 0.3
+  });
+  const service4InView = useInView(serviceRefs.current[3], { 
+    once: true,
+    amount: 0.3
+  });
+  
+  const footerInView = useInView(footerRef, { 
+    once: true,
+    amount: 0.3
+  });
 
-export default function CoreServices() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { scale: 0.9, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    },
+    hover: {
+      y: -10,
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
 
   const services = [
     {
-      icon: Calculator,
+      icon: <BuildingLibraryIcon className="w-10 h-10 text-[#50a7c3]" />,
       title: "Accounting & Finance Solutions",
       description: "Our accounting services help businesses stay on top of their financial health. From bookkeeping and tax preparation to monthly reporting, we ensure your finances are accurately managed, enabling you to make better business decisions.",
+      link: "/finance",
+      ref: serviceRefs.current[0],
+      inView: service1InView
     },
     {
-      icon: Cpu,
+      icon: <CloudIcon className="w-10 h-10 text-[#50a7c3]" />,
       title: "IT & Technology Solutions",
       description: "Our IT services provide businesses with robust, secure, and scalable systems. From software integration to custom automation, we streamline your operations, improving efficiency and reducing costs.",
+      link: "/itservices",
+      ref: serviceRefs.current[1],
+      inView: service2InView
     },
     {
-      icon: TrendingUp,
+      icon: <ChartBarIcon className="w-10 h-10 text-[#50a7c3]" />,
       title: "Digital Marketing Services",
       description: "Maximize your online presence with our digital marketing solutions. We specialize in SEO, social media strategies, and targeted advertising that drive traffic and grow your business.",
+      link: "/digitalmarketing",
+      ref: serviceRefs.current[2],
+      inView: service3InView
     },
     {
-      icon: Settings,
+      icon: <CalculatorIcon className="w-10 h-10 text-[#50a7c3]" />,
       title: "QuickBooks Integration & Support",
       description: "As an official QuickBooks partner, we offer expert services in QuickBooks setup, training, and ongoing support. We help automate your accounting tasks and ensure your business is running efficiently with QuickBooks.",
+      link: "/quickbooks",
+      ref: serviceRefs.current[3],
+      inView: service4InView
     }
-  ]
+  ];
 
   return (
-    <section ref={ref} className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Section Header - Creative */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="mb-6"
-          >
-            <div className="inline-block">
-              <div className="w-20 h-1 bg-gradient-to-r from-[#50a7c3] to-[#2f697f] rounded-full mb-4 mx-auto"></div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Core <span className="text-[#50a7c3]">Services</span>
-              </h2>
-            </div>
-          </motion.div>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
-          >
-            Comprehensive solutions designed to drive growth and efficiency for your business
-          </motion.p>
+    <section className="py-12 md:py-20 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Divider */}
+        <div className="flex justify-center items-center mb-8">
+          <div className="bg-[#50a7c3] w-[10%] h-1"></div>
         </div>
 
-        {/* Services - Creative 4-column layout with staggered animation */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Header Section */}
+        <div ref={headerRef}>
+          <motion.div
+            initial="hidden"
+            animate={headerInView ? "visible" : "hidden"}
+            variants={containerVariants}
+          >
+            <motion.div variants={itemVariants} className="mb-12">
+              <h2 
+                className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4"
+              >
+                What We Specialize In
+              </h2>
+              <p 
+                className="text-gray-600 text-center max-w-2xl mx-auto text-lg leading-relaxed"
+              >
+                Comprehensive solutions designed to drive growth and efficiency for your business
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Services Grid - 4 cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="group"
-            >
-              {/* Service Card */}
-              <div className="h-full bg-gradient-to-b from-white to-gray-50 rounded-2xl p-6 border border-gray-200 group-hover:border-[#50a7c3]/50 group-hover:shadow-xl transition-all duration-300 relative overflow-hidden">
-                
-                {/* Animated background circle */}
-                <div className="absolute -right-8 -top-8 w-24 h-24 bg-[#50a7c3]/5 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700"></div>
-                
-                {/* Icon */}
-                <div className="relative z-10 mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-white shadow-lg flex items-center justify-center border border-gray-100 group-hover:border-[#50a7c3]/30 transition-colors duration-300">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#50a7c3]/10 to-[#2f697f]/10 flex items-center justify-center">
-                      <service.icon className="w-6 h-6 text-[#50a7c3]" />
+            <div key={service.title} ref={service.ref} className="h-full flex">
+              <motion.div
+                initial="hidden"
+                animate={service.inView ? "visible" : "hidden"}
+                variants={cardVariants}
+                whileHover="hover"
+                className="h-full w-full"
+              >
+                <div
+                  className="h-full p-8 rounded-2xl bg-white border border-gray-300 transition-all duration-300 flex flex-col"
+                  style={{ 
+                    boxShadow: 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 16px 32px rgba(80, 167, 195, 0.15)';
+                    e.currentTarget.style.borderColor = 'rgba(80, 167, 195, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = 'none';
+                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.2)';
+                  }}
+                >
+                  <div className="flex flex-col items-center text-center h-full">
+                    {/* Icon */}
+                    <div className="w-20 h-20 rounded-lg bg-[rgba(80,167,195,0.1)] flex items-center justify-center mb-6">
+                      {service.icon}
                     </div>
+                    
+                    {/* Title */}
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4 leading-tight min-h-[56px]">
+                      {service.title}
+                    </h3>
+                    
+                    {/* Description */}
+                    <p className="text-gray-600 leading-relaxed text-sm flex-grow mb-6">
+                      {service.description}
+                    </p>
+                    
+                    {/* Button */}
+                    <Link href={service.link} className="inline-block mt-auto pt-4">
+                      <motion.button
+                        className="inline-flex items-center justify-center py-3 px-6 rounded-lg bg-[#50a7c3] text-white font-semibold text-sm transition-all duration-300 hover:bg-[#2f697f] hover:shadow-lg hover:-translate-y-0.5"
+                        style={{ 
+                          boxShadow: 'none',
+                          transition: 'all 0.3s ease'
+                        }}
+                        whileHover={{ 
+                          boxShadow: '0 8px 20px rgba(80, 167, 195, 0.3)'
+                        }}
+                      >
+                        Learn More
+                        <ArrowRightIcon className="ml-2 w-4 h-4" />
+                      </motion.button>
+                    </Link>
                   </div>
                 </div>
-                
-                {/* Title */}
-                <h3 className="text-lg font-bold text-gray-900 mb-4 relative z-10">
-                  {service.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 relative z-10">
-                  {service.description}
-                </p>
-                
-                {/* Learn More Button */}
-                <div className="relative z-10">
-                  <button className="flex items-center text-[#50a7c3] font-semibold text-sm group/btn">
-                    <span>Explore Service</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           ))}
         </div>
 
-        {/* Creative CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-20 text-center"
-        >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-6 bg-gradient-to-r from-[#50a7c3]/5 to-[#2f697f]/5 rounded-2xl p-8 border border-gray-100">
-            <div className="text-left">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Need a custom solution?
-              </h3>
-              <p className="text-gray-600">
-                Contact us to discuss how we can tailor our services to meet your unique business needs.
-              </p>
+        {/* Footer CTA */}
+        <div ref={footerRef} className="mt-16">
+          <motion.div
+            initial="hidden"
+            animate={footerInView ? "visible" : "hidden"}
+            variants={itemVariants}
+          >
+            <div
+              className="p-8 rounded-2xl bg-[rgba(80,167,195,0.05)] border border-gray-300 text-center"
+            >
+              <div className="flex flex-col items-center space-y-4">
+                <h4 className="text-xl font-semibold text-gray-900">
+                  Need a custom solution or have specific requirements?
+                </h4>
+                <p className="text-gray-600 max-w-lg">
+                  Contact us to discuss how we can tailor our services to meet your unique business needs.
+                </p>
+                <Link href="/contact" className="inline-block">
+                  <motion.button
+                    className="mt-2 py-3 px-8 rounded-lg border-2 border-[#50a7c3] text-[#50a7c3] font-semibold transition-all duration-300 hover:bg-[rgba(80,167,195,0.08)] hover:border-[#2f697f] hover:text-[#2f697f]"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Contact Us
+                  </motion.button>
+                </Link>
+              </div>
             </div>
-            <button className="px-8 py-3 bg-gradient-to-r from-[#50a7c3] to-[#2f697f] text-white font-bold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105">
-              Get in Touch
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Decorative bottom */}
-        <div className="flex justify-center mt-16">
-          <div className="w-32 h-1 bg-gradient-to-r from-[#50a7c3]/20 via-[#50a7c3] to-[#50a7c3]/20 rounded-full"></div>
+          </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

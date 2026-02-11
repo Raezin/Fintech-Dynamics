@@ -89,7 +89,7 @@ export default function Footer() {
                     <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-[#50a7c3] rounded-full"></span>
                   </h6>
                   <ul className="space-y-2">
-                    {['About Us', 'Services', 'Industries', 'Contact Us'].map((item) => (
+                    {['About Us', 'Blog', 'Contact Us', 'Privacy Policy'].map((item) => (
                       <li key={item}>
                         <Link
                           href="#"
@@ -113,7 +113,7 @@ export default function Footer() {
                       'Financial Solutions',
                       'IT Services',
                       'Digital Marketing',
-                      'Automation Systems'
+                      'QuickBooks'
                     ].map((service) => (
                       <li key={service}>
                         <Link
