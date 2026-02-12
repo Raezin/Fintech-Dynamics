@@ -19,11 +19,11 @@ export default function Values() {
     amount: 0.3
   });
   
-  const card1InView = useInView(cardsRef.current[0], { once: true, amount: 0.3 });
-  const card2InView = useInView(cardsRef.current[1], { once: true, amount: 0.3 });
-  const card3InView = useInView(cardsRef.current[2], { once: true, amount: 0.3 });
-  const card4InView = useInView(cardsRef.current[3], { once: true, amount: 0.3 });
-  const card5InView = useInView(cardsRef.current[4], { once: true, amount: 0.3 });
+  const card1InView = useInView(cardsRef.current[0], { once: true, amount: 0.2 });
+  const card2InView = useInView(cardsRef.current[1], { once: true, amount: 0.2 });
+  const card3InView = useInView(cardsRef.current[2], { once: true, amount: 0.2 });
+  const card4InView = useInView(cardsRef.current[3], { once: true, amount: 0.2 });
+  const card5InView = useInView(cardsRef.current[4], { once: true, amount: 0.2 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,7 +31,7 @@ export default function Values() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   };
@@ -43,25 +43,26 @@ export default function Values() {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
 
   const cardVariants = {
-    hidden: { scale: 0.9, opacity: 0 },
+    hidden: { y: 40, opacity: 0 },
     visible: {
-      scale: 1,
+      y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
-        ease: "easeOut"
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1]
       }
     },
     hover: {
-      y: -5,
+      y: -8,
+      boxShadow: "0 20px 40px -12px rgba(80, 167, 195, 0.15)",
       transition: {
-        duration: 0.2,
+        duration: 0.25,
         ease: "easeOut"
       }
     }
@@ -106,11 +107,17 @@ export default function Values() {
   ];
 
   return (
-    <section className="py-20 md:py-24 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Top line */}
+    <section className="py-24 md:py-32 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(80,167,195,0.3),transparent_50%)]" />
+        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_50%,rgba(80,167,195,0.2),transparent_50%)]" />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Single blue line at top only */}
         <div className="flex justify-center mb-12">
-          <div className="w-20 h-1 bg-[#50a7c3] rounded-full"></div>
+          <div className="w-24 h-1 bg-[#50a7c3] rounded-full"></div>
         </div>
 
         {/* Header */}
@@ -119,23 +126,26 @@ export default function Values() {
             initial="hidden"
             animate={headerInView ? "visible" : "hidden"}
             variants={containerVariants}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-20"
           >
+            <motion.span 
+              variants={itemVariants}
+              className="text-sm uppercase tracking-[0.3em] text-[#50a7c3] font-semibold mb-4 block"
+            >
+              Our Values
+            </motion.span>
+            
             <motion.h2 
               variants={itemVariants}
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              className="text-3xl md:text-5xl font-bold text-white mb-6"
             >
-              Guided by <span className="text-[#50a7c3]">Principles</span>, Driven by Purpose
+              Built on <span className="text-[#50a7c3]">principles</span>
+              <br />that drive progress
             </motion.h2>
-            
-            <motion.div 
-              variants={itemVariants}
-              className="w-16 h-1 bg-[#50a7c3]/50 rounded-full mx-auto mb-6"
-            />
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg text-gray-600 leading-relaxed"
+              className="text-lg text-gray-300 leading-relaxed"
             >
               At Fintech Dynamics, our foundation is built on values that guide every decision, project, and partnership. 
               These principles reflect who we are—shaping how we serve our clients, empower our people, and contribute 
@@ -144,8 +154,8 @@ export default function Values() {
           </motion.div>
         </div>
 
-        {/* Values Cards Grid - No CTAs */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        {/* Values Cards Grid - Elevated Cards with Dark Background */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {values.map((value, index) => (
             <div 
               key={value.title} 
@@ -159,31 +169,32 @@ export default function Values() {
                 whileHover="hover"
                 className="h-full"
               >
-                <div className="h-full bg-white rounded-2xl p-8 border border-gray-200 hover:border-[#50a7c3] hover:shadow-lg transition-all duration-300 flex flex-col">
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-xl bg-[rgba(80,167,195,0.1)] flex items-center justify-center mb-6">
-                    <value.icon className="w-7 h-7 text-[#50a7c3]" />
+                <div className="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-[#50a7c3]/30 transition-all duration-300 flex flex-col group">
+                  {/* Icon with glass effect */}
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[rgba(80,167,195,0.1)] to-[rgba(80,167,195,0.05)] border border-[rgba(80,167,195,0.2)] flex items-center justify-center mb-6 group-hover:border-[rgba(80,167,195,0.5)] group-hover:from-[rgba(80,167,195,0.15)] group-hover:to-[rgba(80,167,195,0.1)] transition-all duration-300">
+                    <value.icon className="w-8 h-8 text-[#50a7c3]" />
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-[#50a7c3] transition-colors duration-300">
                     {value.title}
                   </h3>
                   
-                  {/* Description - No CTA */}
-                  <p className="text-gray-600 leading-relaxed">
+                  {/* Description */}
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                     {value.description}
                   </p>
+
+                  {/* Subtle decorative element */}
+                  <div className="w-12 h-0.5 bg-[#50a7c3]/20 rounded-full mt-6 group-hover:w-16 group-hover:bg-[#50a7c3]/40 transition-all duration-300"></div>
                 </div>
               </motion.div>
             </div>
           ))}
         </div>
 
-        {/* Bottom line */}
-        <div className="flex justify-center mt-16 pt-8 border-t border-gray-200">
-          <div className="w-20 h-1 bg-[#50a7c3] rounded-full"></div>
-        </div>
+        {/* No bottom line - just subtle spacing */}
+        <div className="mt-20"></div>
       </div>
     </section>
   );

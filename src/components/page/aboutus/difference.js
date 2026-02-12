@@ -117,7 +117,7 @@ export default function WhatMakesUsDifferent() {
   return (
     <section className="py-20 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Top line */}
+        {/* Single blue line at top only */}
         <div className="flex justify-center mb-12">
           <div className="w-20 h-1 bg-[#50a7c3] rounded-full"></div>
         </div>
@@ -136,11 +136,7 @@ export default function WhatMakesUsDifferent() {
             >
               What Makes Us <span className="text-[#50a7c3]">Different</span>
             </motion.h2>
-            
-            <motion.div 
-              variants={itemVariants}
-              className="w-16 h-1 bg-[#50a7c3]/50 rounded-full mx-auto mb-6"
-            />
+          
             
             <motion.p 
               variants={itemVariants}
@@ -185,10 +181,7 @@ export default function WhatMakesUsDifferent() {
           ))}
         </div>
 
-        {/* Bottom line */}
-        <div className="flex justify-center mt-16 pt-8 border-t border-gray-200">
-          <div className="w-20 h-1 bg-[#50a7c3] rounded-full"></div>
-        </div>
+        {/* Bottom line removed - no border, no blue line */}
       </div>
     </section>
   );
