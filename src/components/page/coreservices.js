@@ -110,14 +110,14 @@ export default function Services() {
       ref: serviceRefs.current[2],
       inView: service3InView
     },
-    {
-      icon: <CalculatorIcon className="w-10 h-10 text-[#50a7c3]" />,
-      title: "QuickBooks Integration & Support",
-      description: "As an official QuickBooks partner, we offer expert services in QuickBooks setup, training, and ongoing support. We help automate your accounting tasks and ensure your business is running efficiently with QuickBooks.",
-      link: "/quickbooks",
-      ref: serviceRefs.current[3],
-      inView: service4InView
-    }
+    // {
+    //   icon: <CalculatorIcon className="w-10 h-10 text-[#50a7c3]" />,
+    //   title: "QuickBooks Integration & Support",
+    //   description: "As an official QuickBooks partner, we offer expert services in QuickBooks setup, training, and ongoing support. We help automate your accounting tasks and ensure your business is running efficiently with QuickBooks.",
+    //   link: "/quickbooks",
+    //   ref: serviceRefs.current[3],
+    //   inView: service4InView
+    // }
   ];
 
   return (
@@ -151,7 +151,7 @@ export default function Services() {
         </div>
 
         {/* Services Grid - 4 cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div key={service.title} ref={service.ref} className="h-full flex">
               <motion.div
