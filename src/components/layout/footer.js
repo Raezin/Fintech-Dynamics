@@ -61,18 +61,20 @@ export default function Footer() {
                 {/* Social Media Icons */}
                 <div className="flex space-x-2 mt-4">
                   {[
-                    { icon: Facebook, label: 'Facebook' },
-                    { icon: Twitter, label: 'Twitter' },
-                    { icon: Linkedin, label: 'LinkedIn' },
-                    { icon: Instagram, label: 'Instagram' }
+                    { icon: Facebook, label: 'Facebook', href: 'https://facebook.com' },
+                    { icon: Twitter, label: 'Twitter', href: 'https://twitter.com' },
+                    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
                   ].map((social) => (
-                    <button
+                    <Link
                       key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-8 h-8 flex items-center justify-center rounded-full bg-[#50a7c3]/10 text-white hover:bg-[#50a7c3]/20 hover:-translate-y-0.5 transition-all duration-300"
                       aria-label={social.label}
                     >
                       <social.icon className="w-4 h-4" />
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -89,16 +91,30 @@ export default function Footer() {
                     <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-[#50a7c3] rounded-full"></span>
                   </h6>
                   <ul className="space-y-2">
-                    {['About Us', 'Blog', 'Contact Us', 'Privacy Policy'].map((item) => (
-                      <li key={item}>
-                        <Link
-                          href="#"
-                          className="text-sm text-gray-300 hover:text-[#50a7c3] transition-all duration-300 py-1 block hover:pl-2 hover:border-l-2 hover:border-[#50a7c3]"
-                        >
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
+                    <li>
+                      <Link
+                        href="/aboutus"
+                        className="text-sm text-gray-300 hover:text-[#50a7c3] transition-all duration-300 py-1 block hover:pl-2 hover:border-l-2 hover:border-[#50a7c3]"
+                      >
+                        About Us
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/contact"
+                        className="text-sm text-gray-300 hover:text-[#50a7c3] transition-all duration-300 py-1 block hover:pl-2 hover:border-l-2 hover:border-[#50a7c3]"
+                      >
+                        Contact Us
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/career"
+                        className="text-sm text-gray-300 hover:text-[#50a7c3] transition-all duration-300 py-1 block hover:pl-2 hover:border-l-2 hover:border-[#50a7c3]"
+                      >
+                        Career
+                      </Link>
+                    </li>
                   </ul>
                 </motion.div>
 
@@ -109,21 +125,30 @@ export default function Footer() {
                     <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-[#50a7c3] rounded-full"></span>
                   </h6>
                   <ul className="space-y-2">
-                    {[
-                      'Financial Solutions',
-                      'IT Services',
-                      'Digital Marketing',
-                      'QuickBooks'
-                    ].map((service) => (
-                      <li key={service}>
-                        <Link
-                          href="#"
-                          className="text-sm text-gray-300 hover:text-[#50a7c3] transition-all duration-300 py-1 block hover:pl-2 hover:border-l-2 hover:border-[#50a7c3]"
-                        >
-                          {service}
-                        </Link>
-                      </li>
-                    ))}
+                    <li>
+                      <Link
+                        href="/finance"
+                        className="text-sm text-gray-300 hover:text-[#50a7c3] transition-all duration-300 py-1 block hover:pl-2 hover:border-l-2 hover:border-[#50a7c3]"
+                      >
+                        Financial Solutions
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/itservices"
+                        className="text-sm text-gray-300 hover:text-[#50a7c3] transition-all duration-300 py-1 block hover:pl-2 hover:border-l-2 hover:border-[#50a7c3]"
+                      >
+                        IT Services
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/digitalmarketing"
+                        className="text-sm text-gray-300 hover:text-[#50a7c3] transition-all duration-300 py-1 block hover:pl-2 hover:border-l-2 hover:border-[#50a7c3]"
+                      >
+                        Digital Marketing
+                      </Link>
+                    </li>
                   </ul>
                 </motion.div>
 
@@ -149,9 +174,12 @@ export default function Footer() {
                       <div className="w-8 h-8 rounded-full bg-[#50a7c3]/10 flex items-center justify-center flex-shrink-0">
                         <Phone className="w-4 h-4 text-[#50a7c3]" />
                       </div>
-                      <p className="text-sm text-gray-300">
+                      <Link 
+                        href="tel:+92370050852" 
+                        className="text-sm text-gray-300 hover:text-[#50a7c3] transition-colors"
+                      >
                         +92 370 0500852
-                      </p>
+                      </Link>
                     </div>
                     
                     {/* Email */}
@@ -159,9 +187,12 @@ export default function Footer() {
                       <div className="w-8 h-8 rounded-full bg-[#50a7c3]/10 flex items-center justify-center flex-shrink-0">
                         <Mail className="w-4 h-4 text-[#50a7c3]" />
                       </div>
-                      <p className="text-sm text-gray-300">
+                      <Link 
+                        href="mailto:info@fintechdynamics.co" 
+                        className="text-sm text-gray-300 hover:text-[#50a7c3] transition-colors"
+                      >
                         info@fintechdynamics.co
-                      </p>
+                      </Link>
                     </div>
                     
                     {/* Business Hours */}

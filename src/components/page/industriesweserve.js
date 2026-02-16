@@ -6,12 +6,12 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 // Import your industry images
-import retail from "../../assets/Backgrounds/property_service.jpg";
-import healthcare from "../../assets/Backgrounds/property_service.jpg";
-import realestate from "../../assets/Backgrounds/property_service.jpg";
-import hospitality from "../../assets/Backgrounds/property_service.jpg";
-import manufacturing from "../../assets/Backgrounds/property_service.jpg";
-import professional from "../../assets/Backgrounds/property_service.jpg";
+import retail from "../../assets/Backgrounds/retail.jpg";
+import healthcare from "../../assets/Backgrounds/healthcare.jpg";
+import realestate from "../../assets/Backgrounds/realestate.jpg";
+import hospitality from "../../assets/Backgrounds/hospitality.jpg";
+import manufacturing from "../../assets/Backgrounds/Manufacturing.webp";
+import professional from "../../assets/Backgrounds/profServices.jpg";
 
 export default function IndustriesServed() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -182,14 +182,6 @@ export default function IndustriesServed() {
                 <p className="text-base md:text-lg text-white/90 leading-relaxed max-w-2xl mx-auto">
                   {industries[currentIndex].description}
                 </p>
-                
-                {/* Learn More Button */}
-                <Link 
-                  href={industries[currentIndex].link}
-                  className="inline-block mt-8 px-8 py-3 bg-[#50a7c3] hover:bg-[#2f697f] text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                >
-                  Learn More
-                </Link>
               </div>
             </motion.div>
           </AnimatePresence>

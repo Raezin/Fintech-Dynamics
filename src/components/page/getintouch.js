@@ -137,37 +137,6 @@ export default function EndSection() {
             </motion.div>
           </motion.div>
 
-          {/* CTA Buttons */}
-          {/* <motion.div variants={itemVariants}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.div
-                variants={buttonVariants}
-                whileHover="hover"
-              >
-                <Link href="/consultation">
-                  <button 
-                    className="w-full sm:w-auto px-8 py-4 bg-[#50a7c3] hover:bg-[#2f697f] text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
-                  >
-                    Book Consultation
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </Link>
-              </motion.div>
-
-              <motion.div
-                variants={buttonVariants}
-                whileHover="hover"
-              >
-                <Link href="/contact">
-                  <button 
-                    className="w-full sm:w-auto px-8 py-4 border-2 border-[#50a7c3] text-[#50a7c3] hover:bg-[#50a7c3] hover:text-white font-semibold rounded-xl transition-all duration-300"
-                  >
-                    Contact Us
-                  </button>
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div> */}
 
           {/* Tagline */}
           <motion.div 

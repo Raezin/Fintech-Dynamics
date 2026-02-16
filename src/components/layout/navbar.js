@@ -37,18 +37,6 @@ const Navbar = () => {
         { label: "Finance", path: "/finance" },
         { label: "IT Services", path: "/itservices" },
         { label: "Digital Marketing", path: "/digitalmarketing" },
-        // { label: "QuickBooks", path: "/quickbooks" },
-      ],
-    },
-    { label: "Resources", path: "/resources" },
-    {
-      label: "Industries",
-      path: "/industries",
-      submenu: [
-        { label: "Accounting", path: "/industries/accounting" },
-        { label: "Property Management", path: "/industries/property-management" },
-        { label: "Restaurant & Hotel", path: "/industries/restaurant-hotel" },
-        { label: "Construction Business", path: "/industries/construction" },
       ],
     },
     { label: "Career", path: "/career" },
