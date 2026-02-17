@@ -157,7 +157,6 @@ export default function OurProcess() {
                     {/* Decorative element */}
                     <div className="flex items-center gap-2 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="w-8 h-0.5 bg-[#50a7c3] rounded-full" />
-                      <span className="text-xs text-[#50a7c3] font-medium">Learn more</span>
                     </div>
                   </div>
                 </div>
