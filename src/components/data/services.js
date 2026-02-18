@@ -63,7 +63,7 @@ export const services = [
       
       "Tax Strategy and Advice": "A strong tax strategy can make a significant difference in your business's bottom line. Our tax strategy and advisory services are designed to help you make smart decisions about your financial structure, operational activities, and investments to minimize tax liability while maximizing profitability. We provide customized tax strategies based on your unique business model and goals. Our experts analyze your current tax situation and provide actionable insights for future tax savings. We advise on tax-efficient business structures, investments, and transactions, ensuring long-term tax advantages. We offer guidance on international tax laws and regulations if your business operates across borders. Benefits: Tailored tax strategy aligned with your business goals, increased savings through maximized deductions and credits, and strategic planning for future growth with a tax-efficient approach."
     },
-    href: "/finance/tax-services",
+    href: "/finance/taxservices",
     category: "core",
     benefits: [
       "Reduced tax liability through proactive planning",
@@ -103,7 +103,7 @@ export const services = [
       
       "Audit Trail Maintenance": "Audit trail maintenance involves keeping a record of all financial transactions, activities, and changes within your accounting system. This is essential for ensuring transparency and traceability, particularly during audits or investigations. We maintain a secure and detailed audit trail of all financial transactions, ensuring that each entry is documented, traceable, and backed by supporting evidence. This provides an organized history of your financial activities, making it easier to identify discrepancies, fraud, or errors when they occur. Our team ensures that your audit trail is fully compliant with regulatory standards. Benefits: Ensures all transactions are fully traceable, reduces the risk of fraudulent activities by maintaining a clear record, and helps your business comply with auditing standards and regulations."
     },
-    href: "/finance/monthly-audit",
+    href: "/finance/monthlyaudit",
     category: "core",
     benefits: [
       "Early detection of risks and fraudulent activities",
@@ -144,7 +144,7 @@ export const services = [
       
       "Regulatory Compliance Assistance": "Navigating regulatory compliance can be challenging, especially with the constant changes in laws and regulations. At Fintech Dynamics, we offer comprehensive regulatory compliance assistance to ensure that your business is always compliant with local and industry regulations. We keep you informed about any changes in the regulatory landscape and help your business stay compliant with SECP regulations, tax laws, and other industry standards. Benefits: Stay informed about regulatory changes, ensure ongoing compliance with all requirements, and avoid penalties and legal issues."
     },
-    href: "/finance/secp-services",
+    href: "/finance/secpservices",
     category: "compliance",
     benefits: [
       "Hassle-free company registration process",
@@ -223,7 +223,7 @@ export const services = [
       
       "Tax Reporting": "Tax reporting involves preparing the necessary documentation and filings for taxes, including income tax, sales tax, and other applicable taxes. We ensure that your tax reports are accurate and filed on time. Our team handles everything from gathering the necessary data to submitting tax returns, ensuring full compliance with tax regulations. Benefits: Accurate tax filings reducing the risk of errors or penalties, timely submission of tax documents to avoid fines, and compliance with all local and national tax regulations."
     },
-    href: "/finance/financial-reporting",
+    href: "/finance/fr",
     category: "reporting",
     benefits: [
       "Real-time visibility into financial performance",
@@ -299,7 +299,7 @@ export const services = [
       
       "Financial Reporting Dashboards": "Financial reporting dashboards provide real-time, interactive visualizations of your business's financial data. These dashboards give you immediate insights into your financial performance, helping you make informed decisions. We set up financial reporting dashboards that display key metrics, including profitability, cash flow, and expenses. Our dashboards are customizable, giving you the ability to track the metrics that matter most to your business. Benefits: Real-time financial insights to help with decision-making, customizable dashboards to suit your business needs, and better financial visibility with interactive visualizations."
     },
-    href: "/finance/financial-software",
+    href: "/finance/fs",
     category: "technology",
     benefits: [
       "Custom QuickBooks setup and support",
@@ -320,7 +320,7 @@ export const services = [
   },
   
   {
-    id: "corporate-governance",
+    id: "cg",
     icon: Shield,
     name: "Corporate Governance",
     tagline: "Strengthen Your Business with Robust Governance and Internal Control Systems",
