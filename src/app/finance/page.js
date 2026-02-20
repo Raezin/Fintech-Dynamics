@@ -1,6 +1,5 @@
 import React from 'react'
 import Service from '@/components/page/finance/service'
-import FAQS from '@/components/page/finance/faqs'
 import Detail from '@/components/page/finance/detail'
 
 export default function page() {
@@ -8,7 +7,6 @@ export default function page() {
     <>
     <Service/>
     <Detail/>
-    <FAQS/>
     </>
   )
 }
