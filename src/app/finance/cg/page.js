@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // app/finance/corporate-governance/page.jsx
 'use client'
 
@@ -571,3 +572,12 @@ export default function CorporateGovernancePage() {
     </>
   );
 }
+=======
+import React from 'react'
+
+export default function page() {
+  return (
+    <div>page</div>
+  )
+}
+>>>>>>> eac3847daa4f86e01149324c4d451e270c0c068b

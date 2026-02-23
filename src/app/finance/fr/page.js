@@ -500,6 +500,7 @@ export default function FinancialReportingPage() {
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* FAQ Section - Light Gray */}
             <section ref={faqRef} className="py-16 bg-gray-50">
               <div className="container mx-auto px-4 max-w-4xl">
@@ -579,6 +580,8 @@ export default function FinancialReportingPage() {
               </div>
             </section>
 
+=======
+>>>>>>> eac3847daa4f86e01149324c4d451e270c0c068b
       {/* CTA Section - Dark Background */}
       <section ref={ctaRef} className="relative bg-gradient-to-br from-gray-900 to-gray-800 py-16 overflow-hidden">
         <div className="absolute inset-0">

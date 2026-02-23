@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // app/finance/consulting/page.jsx
 'use client'
 
@@ -568,3 +569,12 @@ export default function ConsultingPage() {
     </>
   );
 }
+=======
+import React from 'react'
+
+export default function page() {
+  return (
+    <div>page</div>
+  )
+}
+>>>>>>> eac3847daa4f86e01149324c4d451e270c0c068b
