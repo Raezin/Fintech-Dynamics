@@ -163,7 +163,7 @@ export default function ServicesSlider() {
             <>
               <button
                 onClick={prevSlide}
-                className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg hover:bg-gray-50 items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-200 z-30"
+                className="hidden sm:flex left-0 absolute top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg hover:bg-gray-50 items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-200 z-30"
                 aria-label="Previous services"
               >
                 <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
@@ -171,7 +171,7 @@ export default function ServicesSlider() {
               
               <button
                 onClick={nextSlide}
-                className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg hover:bg-gray-50 items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-200 z-30"
+                className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg hover:bg-gray-50 items-center justify-center transition-all duration-300 hover:scale-110 border border-gray-200 z-30"
                 aria-label="Next services"
               >
                 <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-gray-600" />
@@ -181,7 +181,7 @@ export default function ServicesSlider() {
 
           {/* Main Slide - Responsive cards */}
           <div 
-            className="overflow-hidden rounded-2xl px-0 sm:px-12 md:px-14"
+            className="overflow-hidden rounded-2xl py-6 px-0 sm:px-12 md:px-14"
             onMouseEnter={pauseAutoPlay}
             onMouseLeave={resumeAutoPlay}
           >

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // app/finance/consulting/page.jsx
 'use client'
 
@@ -6,7 +5,7 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { 
-  ChevronLeft, 
+  ArrowLeft, 
   ArrowUpRight, 
   CheckCircle, 
   Clock,
@@ -125,11 +124,8 @@ export default function ConsultingPage() {
                 whileHover={{ x: -3 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ArrowLeft className="w-8 h-8" />
               </motion.div>
-              <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
-                Back to Finance
-              </span>
             </Link>
           </motion.div>
 
@@ -569,12 +565,3 @@ export default function ConsultingPage() {
     </>
   );
 }
-=======
-import React from 'react'
-
-export default function page() {
-  return (
-    <div>page</div>
-  )
-}
->>>>>>> eac3847daa4f86e01149324c4d451e270c0c068b

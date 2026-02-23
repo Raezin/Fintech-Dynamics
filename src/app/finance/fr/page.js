@@ -5,7 +5,7 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { 
-  ChevronLeft, 
+  ArrowLeft, 
   ArrowUpRight, 
   CheckCircle, 
   Clock,
@@ -124,11 +124,8 @@ export default function FinancialReportingPage() {
                 whileHover={{ x: -3 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ArrowLeft className="w-8 h-8" />
               </motion.div>
-              <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
-                Back to Finance
-              </span>
             </Link>
           </motion.div>
 
@@ -500,7 +497,6 @@ export default function FinancialReportingPage() {
         </div>
       </section>
 
-<<<<<<< HEAD
       {/* FAQ Section - Light Gray */}
             <section ref={faqRef} className="py-16 bg-gray-50">
               <div className="container mx-auto px-4 max-w-4xl">
@@ -580,8 +576,6 @@ export default function FinancialReportingPage() {
               </div>
             </section>
 
-=======
->>>>>>> eac3847daa4f86e01149324c4d451e270c0c068b
       {/* CTA Section - Dark Background */}
       <section ref={ctaRef} className="relative bg-gradient-to-br from-gray-900 to-gray-800 py-16 overflow-hidden">
         <div className="absolute inset-0">

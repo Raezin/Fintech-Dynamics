@@ -5,7 +5,7 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { 
-  ChevronLeft, 
+  ArrowLeft, 
   ArrowUpRight, 
   CheckCircle, 
   Clock,
@@ -121,11 +121,8 @@ export default function BookkeepingPage() {
                 whileHover={{ x: -3 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ArrowLeft className="w-8 h-8" />
               </motion.div>
-              <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white after:transition-all after:duration-300 group-hover:after:w-full">
-                Back to Finance
-              </span>
             </Link>
           </motion.div>
 
