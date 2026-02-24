@@ -39,6 +39,7 @@ const Navbar = () => {
         { label: "Digital Marketing", path: "/digitalmarketing" },
       ],
     },
+    { label: "Industries", path: "/industries" },
     { label: "Career", path: "/career" },
     { label: "Contact", path: "/contact" },
   ]

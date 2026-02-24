@@ -178,7 +178,7 @@ export default function Footer() {
                         href="tel:+92370050852" 
                         className="text-sm text-gray-300 hover:text-[#50a7c3] transition-colors"
                       >
-                        +92 370 0500852
+                        +92 348 7988543
                       </Link>
                     </div>
                     

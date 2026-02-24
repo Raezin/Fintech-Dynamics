@@ -105,10 +105,10 @@ export default function EndSection() {
                 <div>
                   <p className="text-sm text-gray-500 mb-1">Call Us</p>
                   <a 
-                    href="tel:+923700500852" 
+                    href="tel:+923487988543" 
                     className="text-lg md:text-xl font-semibold text-gray-900 hover:text-[#50a7c3] transition-colors"
                   >
-                    +92 370 0500852
+                    +92  348 7988543
                   </a>
                 </div>
               </div>

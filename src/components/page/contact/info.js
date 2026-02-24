@@ -308,8 +308,8 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm text-gray-500 mb-1">Call Us</p>
-                        <a href="tel:+923700500852" className="text-gray-900 font-medium hover:text-[#50a7c3] transition-colors">
-                          📞 +92 370 0500852
+                        <a href="tel:+923487988543" className="text-gray-900 font-medium hover:text-[#50a7c3] transition-colors">
+                          📞 +92 348 7988543
                         </a>
                       </div>
                     </div>
@@ -333,7 +333,7 @@ export default function ContactPage() {
                       <div>
                         <p className="text-sm text-gray-500 mb-1">Office Address</p>
                         <p className="text-gray-900 font-medium">
-                          Karachi, Pakistan
+                          Office #409, Empire Plaza, Executive Block , Civic Center, Gulberg Greens, Islamabad
                         </p>
                       </div>
                     </div>
