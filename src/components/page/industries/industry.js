@@ -107,6 +107,12 @@ export default function Industries() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              Industries We Support
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Tailored Solutions for Every Sector
+            </h2>
             <p className="text-lg text-gray-600">
               At Fintech Dynamics, we understand that every industry operates under unique financial regulations, tax structures, and operational challenges. Our tailored accounting and financial strategies are designed to meet the specific needs of each sector, ensuring compliance, efficiency, and sustainable growth.
             </p>
