@@ -37,7 +37,7 @@ export default function Service() {
   };
 
   return (
-    <section className="relative h-[30vh] md:h-[35vh] overflow-hidden flex items-center justify-center">
+    <section className="relative h-[40vh] md:h-[50vh] py-20 overflow-hidden flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

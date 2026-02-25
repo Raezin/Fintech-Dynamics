@@ -238,7 +238,7 @@ export default function ServicesSlider() {
                         </p>
 
                         {/* Key Services Tags */}
-                        <div className="flex flex-wrap gap-1 mb-4">
+                        {/* <div className="flex flex-wrap gap-1 mb-4">
                           {service.includes.slice(0, 2).map((item, idx) => (
                             <span 
                               key={idx}
@@ -252,7 +252,7 @@ export default function ServicesSlider() {
                               +{service.includes.length - 2}
                             </span>
                           )}
-                        </div>
+                        </div> */}
 
                         {/* Learn More Button */}
                         <Link

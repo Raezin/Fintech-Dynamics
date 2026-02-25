@@ -61,9 +61,8 @@ export default function Footer() {
                 {/* Social Media Icons */}
                 <div className="flex space-x-2 mt-4">
                   {[
-                    { icon: Facebook, label: 'Facebook', href: 'https://facebook.com' },
-                    { icon: Twitter, label: 'Twitter', href: 'https://twitter.com' },
-                    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
+                    { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/p/Fintech-Dynamics-Pvt-Ltd-61557444514807/' },
+                    { icon: Linkedin, label: 'LinkedIn', href: 'https://pk.linkedin.com/company/fintech-dynamics01' },
                   ].map((social) => (
                     <Link
                       key={social.label}
