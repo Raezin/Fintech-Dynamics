@@ -186,16 +186,16 @@ export default function CorporateGovernancePage() {
               animate={introInView ? "visible" : "hidden"}
               className="md:w-all"
             >
-              <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              <span className="text-sm text-center uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
                 Why Governance Matters
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl text-center font-bold text-gray-900 mb-6">
                 Build a Foundation of Trust and Transparency
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-gray-700 text-center leading-relaxed">
                 At Fintech Dynamics, we understand that effective corporate governance and internal control systems are essential for ensuring transparency, accountability, and operational efficiency. We provide expert services in setting up internal control systems and creating board reports that help businesses operate smoothly, reduce risks, and maintain regulatory compliance.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed mt-4">
+              <p className="text-lg text-gray-700 leading-relaxed text-center mt-4">
                 Our comprehensive corporate governance services are designed to improve your organization's internal processes, protect assets, and ensure you're operating within the boundaries of local and international regulations.
               </p>
             </motion.div>

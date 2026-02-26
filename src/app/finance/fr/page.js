@@ -186,13 +186,13 @@ export default function FinancialReportingPage() {
               animate={introInView ? "visible" : "hidden"}
               className="md:w-all"
             >
-              <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              <span className="text-sm text-center uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
                 Why Financial Reporting Matters
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl text-center font-bold text-gray-900 mb-6">
                 Clear Visibility into Your Business Performance
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-center text-gray-700 leading-relaxed">
                 At Fintech Dynamics, we offer comprehensive financial reporting services that provide you with a clear view of your business's financial health. Our expert team prepares essential reports, including management reports, annual financial statements, and tax reporting, ensuring that you have the information you need to make informed decisions and stay compliant.
               </p>
             </motion.div>

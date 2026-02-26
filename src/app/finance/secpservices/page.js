@@ -186,13 +186,13 @@ export default function SECPServicesPage() {
               animate={introInView ? "visible" : "hidden"}
               className="md:w-all"
             >
-              <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              <span className="text-sm text-center uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
                 Why SECP Compliance Matters
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl text-center font-bold text-gray-900 mb-6">
                 Navigate Regulatory Compliance with Confidence
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-center text-gray-700 leading-relaxed">
                 At Fintech Dynamics, we offer a comprehensive suite of services designed to help your business stay compliant with the regulations set by the Securities and Exchange Commission of Pakistan (SECP). Whether you're starting a new business, handling ongoing compliance, or managing shareholder records, our expert team is here to guide you through the complex regulatory environment.
               </p>
             </motion.div>

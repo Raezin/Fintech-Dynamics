@@ -186,13 +186,13 @@ export default function FPAPage() {
               animate={introInView ? "visible" : "hidden"}
               className="md:w-all"
             >
-              <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              <span className="text-sm text-center uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
                 Why FP&A Matters
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl text-center font-bold text-gray-900 mb-6">
                 Drive Strategic Growth with Financial Intelligence
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-center text-gray-700 leading-relaxed">
                 At Fintech Dynamics, we provide expert Financial Planning & Analysis (FP&A) services designed to give you a comprehensive view of your business's financial health. Our FP&A services help you forecast future performance, manage costs, and track variances, allowing you to make strategic decisions that drive long-term growth.
               </p>
             </motion.div>

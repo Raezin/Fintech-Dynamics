@@ -335,7 +335,6 @@ export const services = [
       "Board Reporting": "Board reporting involves preparing comprehensive financial and operational reports for your company's board of directors. These reports provide insights into your business's performance, financial health, and compliance status, allowing your board members to make informed decisions. We assist in creating board reports that present key financial metrics, such as income statements, balance sheets, cash flow statements, and other relevant data. We ensure that your reports are clear, accurate, and actionable, helping your board make strategic decisions that drive business growth and compliance. Benefits: Informed decision-making with accurate financial information, enhanced transparency of operations and financial status, and strategic oversight through data-driven decisions."
     },
     href: "/finance/cg",
-    href: "/finance/corporate-governance",
     category: "governance",
     benefits: [
       "Robust internal control systems",

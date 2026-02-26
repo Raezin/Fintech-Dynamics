@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { 
   Facebook, 
-  Twitter, 
   Linkedin, 
   Instagram, 
   Mail, 
@@ -50,7 +49,7 @@ export default function Footer() {
             >
               <div className="space-y-4">
                 <h5 className="text-xl font-bold mb-4 bg-gradient-to-r from-[#50a7c3] to-[#2f697f] bg-clip-text text-transparent">
-                  FinTech Dynamics
+                  Fintech Dynamics
                 </h5>
                 <p className="text-sm text-gray-300 leading-relaxed">
                   We provide cutting-edge financial technology solutions to help businesses 
@@ -63,6 +62,7 @@ export default function Footer() {
                   {[
                     { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/p/Fintech-Dynamics-Pvt-Ltd-61557444514807/' },
                     { icon: Linkedin, label: 'LinkedIn', href: 'https://pk.linkedin.com/company/fintech-dynamics01' },
+                    { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/fintechdynamics_official/' },
                   ].map((social) => (
                     <Link
                       key={social.label}

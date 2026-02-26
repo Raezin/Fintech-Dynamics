@@ -106,7 +106,7 @@ export default function Hero() {
                 <motion.div variants={itemVariants}>
                   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
                     Empowering Your Business with Intelligent  
-                    <span className="block text-[#50a7c3] mt-2">
+                    <span className="text-[#50a7c3] ml-3 mt-2">
                       Financial & Digital Solutions
                     </span>
                   </h1>
@@ -114,7 +114,7 @@ export default function Hero() {
                 
                 {/* Subtitle */}
                 <motion.div variants={itemVariants}>
-                  <p className="text-lg md:text-md text-gray-200 leading-relaxed max-w-2xl">
+                  <p className="text-lg md:text-md text-justify text-gray-200 leading-relaxed max-w-2xl">
                     At Fintech Dynamics, we provide expert solutions to help businesses streamline operations, stay compliant, and drive growth.
     Our full range of services, from QuickBooks implementation to tailored IT solutions and digital marketing strategies, is designed to optimize your business performance.
 

@@ -181,17 +181,17 @@ export default function CareersPage() {
           </motion.div>
 
           {/* Open Positions Section */}
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <div className="flex items-center justify-center gap-3 mb-8">
               <Briefcase className="w-6 h-6 text-[#50a7c3]" />
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Open Positions
               </h3>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Job Listings */}
-          <motion.div 
+          {/* <motion.div 
             variants={itemVariants}
             className="space-y-4 max-w-4xl mx-auto mb-12"
           >
@@ -234,7 +234,7 @@ export default function CareersPage() {
                 </Link>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div> */}
 
           {/* Call to Action - matching button style */}
           <motion.div 

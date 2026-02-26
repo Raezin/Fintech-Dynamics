@@ -11,7 +11,7 @@ import {
   Send,
   Linkedin,
   Facebook,
-  Twitter,
+  Instagram,
   ExternalLink,
   X,
   CheckCircle,
@@ -350,6 +350,14 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                     >
                       <Facebook className="w-5 h-5 text-[#50a7c3] group-hover:text-white transition-colors" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/fintechdynamics_official/"
+                      className="w-12 h-12 rounded-xl bg-[rgba(80,167,195,0.1)] flex items-center justify-center hover:bg-[#50a7c3] group transition-all duration-300"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Instagram className="w-5 h-5 text-[#50a7c3] group-hover:text-white transition-colors" />
                     </a>
                   </div>
                 </motion.div>

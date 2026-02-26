@@ -184,13 +184,13 @@ export default function PayrollPage() {
               animate={introInView ? "visible" : "hidden"}
               className="md:w-all"
             >
-              <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              <span className="text-sm text-center uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
                 Why Payroll Management Matters
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl text-center font-bold text-gray-900 mb-6">
                 Simplify Your Payroll, Empower Your Business
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-center text-gray-700 leading-relaxed">
                 Managing payroll can be complex, but with Fintech Dynamics, you can simplify the process. Our payroll services ensure that your employees are paid on time and that your business remains compliant with all payroll tax laws and regulations.
               </p>
             </motion.div>

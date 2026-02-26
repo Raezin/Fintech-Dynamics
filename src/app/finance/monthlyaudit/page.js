@@ -187,13 +187,13 @@ export default function MonthlyAuditPage() {
               animate={introInView ? "visible" : "hidden"}
               className="md:w-all"
             >
-              <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              <span className="text-sm text-center uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
                 Why Audits Matter
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl text-center font-bold text-gray-900 mb-6">
                 Financial Integrity Through Expert Audits
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-center text-gray-700 leading-relaxed">
                 At Fintech Dynamics, we offer comprehensive monthly end-to-end service audits to help your business maintain financial integrity, improve internal controls, and ensure compliance with industry standards. Our team of experts conducts thorough audits that provide you with detailed insights into your financial health, operational efficiency, and compliance status, giving you the tools to make informed business decisions.
               </p>
             </motion.div>

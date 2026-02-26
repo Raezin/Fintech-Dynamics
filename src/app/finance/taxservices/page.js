@@ -186,16 +186,16 @@ export default function TaxServicesPage() {
               animate={introInView ? "visible" : "hidden"}
               className="md:w-all"
             >
-              <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              <span className="text-sm text-center uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
                 Why Tax Services Matter
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl text-center font-bold text-gray-900 mb-6">
                 Strategic Tax Management for Business Success
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              <p className="text-lg text-center text-gray-700 leading-relaxed mb-4">
                 At Fintech Dynamics, we provide comprehensive tax services to help your business reduce liabilities, stay compliant, and plan for the future. Our team of tax professionals works closely with you to ensure that your tax strategy aligns with your business goals, minimizing your tax burden and maximizing savings.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-center text-gray-700 leading-relaxed">
                 Whether you need help with tax planning, filing returns, or strategic tax advice, we have the expertise to ensure your business remains on track and compliant with all tax regulations.
               </p>
             </motion.div>

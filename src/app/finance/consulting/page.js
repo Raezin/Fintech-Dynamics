@@ -186,13 +186,13 @@ export default function ConsultingPage() {
               animate={introInView ? "visible" : "hidden"}
               className="md:w-all"
             >
-              <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              <span className="text-sm text-center uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
                 Why Consulting Matters
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl text-center font-bold text-gray-900 mb-6">
                 Strategic Guidance for Sustainable Growth
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-center text-gray-700 leading-relaxed">
                 At Fintech Dynamics, we offer financial consulting services designed to guide your business toward long-term success. Whether you're starting a new business or looking for advice on improving your financial systems, our experienced consultants provide actionable insights and strategies to optimize your financial management.
               </p>
             </motion.div>

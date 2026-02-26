@@ -183,13 +183,13 @@ export default function BookkeepingPage() {
               animate={introInView ? "visible" : "hidden"}
               className="md:w-all"
             >
-              <span className="text-sm uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
+              <span className="text-sm text-center uppercase tracking-[0.2em] text-[#50a7c3] font-semibold mb-3 block">
                 Why Bookkeeping Matters
               </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl text-center font-bold text-gray-900 mb-6">
                 The Foundation of Financial Success
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-lg text-gray-700 text-center leading-relaxed">
                 At Fintech Dynamics, we understand that accurate bookkeeping is the backbone of any successful business. 
                 Our comprehensive bookkeeping services ensure that your financial records are organized, up-to-date, and 
                 compliant with all relevant regulations. With our expertise, we handle the detailed work, allowing you to 
