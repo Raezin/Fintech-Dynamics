@@ -39,7 +39,7 @@ const Navbar = () => {
         { label: "Digital Marketing", path: "/digitalmarketing" },
       ],
     },
-    // { label: "Industries", path: "/industries" },
+    { label: "Blog", path: "/blog" },
     { label: "Career", path: "/career" },
     { label: "Contact", path: "/contact" },
   ]
