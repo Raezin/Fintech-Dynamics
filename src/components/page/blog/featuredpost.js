@@ -4,8 +4,43 @@
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { BlogService } from '@/lib/blogService';
 
 export default function FeaturedPost() {
+  const [featuredPost, setFeaturedPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFeatured = async () => {
+      setLoading(true);
+      try {
+        const post = await BlogService.getFeaturedBlog();
+        setFeaturedPost(post);
+      } catch (error) {
+        console.error('Error fetching featured post:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchFeatured();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#50a7c3]"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!featuredPost) return null;
+
   return (
     <section className="py-8 bg-white">
       <div className="container mx-auto px-4">
@@ -22,26 +57,25 @@ export default function FeaturedPost() {
                 Featured Article
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                The Future of Fintech: Trends to Watch in 2024
+                {featuredPost.title}
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Explore the latest innovations reshaping financial technology, from AI-powered 
-                accounting to blockchain in banking. Discover how these trends can benefit your business.
+                {featuredPost.excerpt}
               </p>
               
               <div className="flex items-center gap-6 mb-6">
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                   <Calendar className="w-4 h-4" />
-                  <span>Feb 28, 2024</span>
+                  <span>{featuredPost.date}</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                   <User className="w-4 h-4" />
-                  <span>Sarah Ahmed</span>
+                  <span>{featuredPost.author}</span>
                 </div>
               </div>
               
               <Link 
-                href="/blog"
+                href={`/blog/${featuredPost.slug}`}
                 className="inline-flex items-center gap-2 bg-[#50a7c3] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#3d8aa3] transition-all group"
               >
                 Read Article
@@ -53,8 +87,11 @@ export default function FeaturedPost() {
               <div className="absolute inset-0 bg-black/20" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <div className="flex gap-2">
-                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm">Fintech</span>
-                  <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm">Trends</span>
+                  {featuredPost.tags?.slice(0, 2).map((tag, i) => (
+                    <span key={i} className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-sm">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
