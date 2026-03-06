@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Shield, Users, Target } from 'lucide-react'
+import QB from "@/assets/Logos/quickbooks.svg";
 
 export default function WhyChooseUs() {
   const headerRef = useRef(null)
@@ -79,6 +80,20 @@ export default function WhyChooseUs() {
     }
   ]
 
+  // Helper function to render icon based on type
+  const renderIcon = (icon, index) => {
+    if (index === 0) {
+      // For QuickBooks logo - wrapped in div with color
+      return (
+        <QB className="text-[#50a7c3]" />
+      )
+    } else {
+      // For Lucide icons
+      const Icon = icon
+      return <Icon className="w-8 h-8 text-[#50a7c3]" />
+    }
+  }
+
   return (
     <section className="py-14 bg-white">
       <div className="container mx-auto px-4">
@@ -138,7 +153,7 @@ export default function WhyChooseUs() {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.boxShadow = 'none';
-                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.1)';
+                    e.currentTarget.style.borderColor = '#e5e7eb';
                   }}
                 >
                   {/* Icon - Clean and simple */}
@@ -147,7 +162,7 @@ export default function WhyChooseUs() {
                       className="w-16 h-16 rounded-xl flex items-center justify-center"
                       style={{ backgroundColor: 'rgba(80, 167, 195, 0.08)' }}
                     >
-                      <feature.icon className="w-8 h-8 text-[#50a7c3]" />
+                      {renderIcon(feature.icon, index)}
                     </div>
                   </div>
                   
