@@ -218,22 +218,24 @@ export default function ServicesSlider() {
                         className="bg-white rounded-2xl p-4 sm:p-5 md:p-6 border-2 border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-[#50a7c3] group h-full flex flex-col cursor-pointer w-full"
                       >
                         {/* Icon with hover effect */}
+                        <div className='flex justify-center'>
                         <div className="bg-[rgba(80,167,195,0.1)] rounded-xl p-3 sm:p-4 w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-[#50a7c3] transition-all duration-300 group-hover:scale-110">
                           <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#50a7c3] group-hover:text-white transition-colors duration-300" />
                         </div>
+                        </div>
 
                         {/* Title */}
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-[#50a7c3] transition-colors">
+                        <h3 className="text-lg text-center sm:text-xl font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-[#50a7c3] transition-colors">
                           {service.name}
                         </h3>
 
                         {/* Tagline */}
-                        <p className="text-[#50a7c3] font-medium text-xs sm:text-sm mb-3 line-clamp-2">
+                        <p className="text-[#50a7c3] text-center font-medium text-xs sm:text-sm mb-3 line-clamp-2">
                           {service.tagline}
                         </p>
 
                         {/* Description */}
-                        <p className="text-xs sm:text-sm text-gray-600 mb-4 line-clamp-3">
+                        <p className="text-xs sm:text-sm text-gray-600 text-center mb-4 line-clamp-3">
                           {service.description}
                         </p>
 

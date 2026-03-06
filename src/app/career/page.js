@@ -170,71 +170,17 @@ export default function CareersPage() {
                 className="w-full"
               >
                 <div className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#50a7c3] hover:shadow-lg transition-all duration-300 h-full">
+                  <div className='flex justify-center'>
                   <div className="w-14 h-14 rounded-xl bg-[rgba(80,167,195,0.1)] flex items-center justify-center mb-4">
                     <value.icon className="w-6 h-6 text-[#50a7c3]" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  </div>
+                  <h3 className="text-xl text-center font-bold text-gray-900 mb-2">{value.title}</h3>
+                  <p className="text-gray-600 text-center">{value.description}</p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
-
-          {/* Open Positions Section */}
-          {/* <motion.div variants={itemVariants}>
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <Briefcase className="w-6 h-6 text-[#50a7c3]" />
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-                Open Positions
-              </h3>
-            </div>
-          </motion.div> */}
-
-          {/* Job Listings */}
-          {/* <motion.div 
-            variants={itemVariants}
-            className="space-y-4 max-w-4xl mx-auto mb-12"
-          >
-            {jobOpenings.map((job) => (
-              <motion.div
-                key={job.id}
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
-                className="group"
-              >
-                <Link href={`/career`}>
-                  <div className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#50a7c3] hover:shadow-lg transition-all duration-300">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                      <div>
-                        <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#50a7c3] transition-colors">
-                          {job.title}
-                        </h4>
-                        <p className="text-gray-600 mb-3">{job.description}</p>
-                        <div className="flex flex-wrap items-center gap-4 text-sm">
-                          <span className="flex items-center gap-1 text-gray-500">
-                            <Briefcase className="w-4 h-4" />
-                            {job.department}
-                          </span>
-                          <span className="flex items-center gap-1 text-gray-500">
-                            <MapPin className="w-4 h-4" />
-                            {job.location}
-                          </span>
-                          <span className="flex items-center gap-1 text-gray-500">
-                            <Clock className="w-4 h-4" />
-                            {job.type}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex items-center text-[#50a7c3] font-medium">
-                        <span className="mr-2">Apply</span>
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div> */}
 
           {/* Call to Action - matching button style */}
           <motion.div 

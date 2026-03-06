@@ -160,10 +160,12 @@ export default function WhatMakesUsDifferent() {
                 whileHover="hover"
                 className="h-full"
               >
-                <div className="h-full bg-white rounded-2xl p-8 border border-gray-200 hover:border-[#50a7c3] hover:shadow-lg transition-all duration-300 flex flex-col">
+                <div className="h-full bg-white rounded-2xl p-8 border border-gray-200 hover:border-[#50a7c3] hover:shadow-lg transition-all duration-300 flex flex-col align-items-center text-center">
                   {/* Icon */}
+                  <div className='flex justify-center'>
                   <div className="w-14 h-14 rounded-xl bg-[rgba(80,167,195,0.1)] flex items-center justify-center mb-6">
                     <item.icon className="w-7 h-7 text-[#50a7c3]" />
+                  </div>
                   </div>
                   
                   {/* Title */}

@@ -163,22 +163,26 @@ export default function OurServices() {
               >
                 <div className="h-full bg-white rounded-2xl p-8 border border-gray-200 hover:border-[#50a7c3] transition-all duration-300 flex flex-col group">
                   {/* Icon with subtle background */}
+                  <div className='flex justify-center'>
                   <div className="w-14 h-14 rounded-xl bg-[rgba(80,167,195,0.08)] flex items-center justify-center mb-6 group-hover:bg-[rgba(80,167,195,0.12)] transition-colors duration-300">
                     <service.icon className="w-7 h-7 text-[#50a7c3]" />
                   </div>
+                  </div>
                   
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#50a7c3] transition-colors duration-300">
+                  <h3 className="text-xl text-center font-bold text-gray-900 mb-4 group-hover:text-[#50a7c3] transition-colors duration-300">
                     {service.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 text-center leading-relaxed text-sm md:text-base">
                     {service.description}
                   </p>
 
                   {/* Subtle accent line */}
+                  <div className='flex justify-center'>
                   <div className="w-12 h-0.5 bg-[#50a7c3]/20 rounded-full mt-6 group-hover:w-16 group-hover:bg-[#50a7c3]/40 transition-all duration-300" />
+                  </div>
                 </div>
               </motion.div>
             </div>

@@ -169,24 +169,28 @@ export default function Values() {
                 whileHover="hover"
                 className="h-full"
               >
-                <div className="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-[#50a7c3]/30 transition-all duration-300 flex flex-col group">
+                <div className="h-full flex bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-[#50a7c3]/30 transition-all duration-300 flex flex-col group">
                   {/* Icon with glass effect */}
+                  <div className='flex justify-center'>
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[rgba(80,167,195,0.1)] to-[rgba(80,167,195,0.05)] border border-[rgba(80,167,195,0.2)] flex items-center justify-center mb-6 group-hover:border-[rgba(80,167,195,0.5)] group-hover:from-[rgba(80,167,195,0.15)] group-hover:to-[rgba(80,167,195,0.1)] transition-all duration-300">
                     <value.icon className="w-8 h-8 text-[#50a7c3]" />
                   </div>
+                  </div>
                   
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-[#50a7c3] transition-colors duration-300">
+                  <h3 className="text-xl text-center font-bold text-white mb-4 group-hover:text-[#50a7c3] transition-colors duration-300">
                     {value.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-300 text-center leading-relaxed text-sm md:text-base">
                     {value.description}
                   </p>
 
                   {/* Subtle decorative element */}
+                  <div className='flex justify-center'>
                   <div className="w-12 h-0.5 bg-[#50a7c3]/20 rounded-full mt-6 group-hover:w-16 group-hover:bg-[#50a7c3]/40 transition-all duration-300"></div>
+                  </div>
                 </div>
               </motion.div>
             </div>

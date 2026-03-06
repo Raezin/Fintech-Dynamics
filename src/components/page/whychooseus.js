@@ -142,7 +142,7 @@ export default function WhyChooseUs() {
                   }}
                 >
                   {/* Icon - Clean and simple */}
-                  <div className="mb-6">
+                  <div className="mb-6 flex items-center justify-center">
                     <div 
                       className="w-16 h-16 rounded-xl flex items-center justify-center"
                       style={{ backgroundColor: 'rgba(80, 167, 195, 0.08)' }}
@@ -152,12 +152,12 @@ export default function WhyChooseUs() {
                   </div>
                   
                   {/* Title */}
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">
+                  <h4 className="text-xl text-center font-bold text-gray-900 mb-3">
                     {feature.title}
                   </h4>
                   
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 text-center leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
