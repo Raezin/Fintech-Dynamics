@@ -1,9 +1,9 @@
-// app/blog/[slug]/page.jsx
 'use client'
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowLeft, Clock, Tag, Share2 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { BlogService } from '@/lib/blogService';
@@ -11,48 +11,51 @@ import Newsletter from '@/components/page/blog/newsletter';
 
 export default function BlogPostPage() {
   const params = useParams();
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
+
+  // Show a mock post instantly while real data loads
+  const [post, setPost] = useState(() => BlogService.getMockBlogBySlug(params.slug));
+  const [isMockPost, setIsMockPost] = useState(true);
   const [relatedPosts, setRelatedPosts] = useState([]);
+  const [isSwapping, setIsSwapping] = useState(false);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     const fetchPost = async () => {
-      setLoading(true);
+      setIsSwapping(true);
       try {
-        const blogPost = await BlogService.getBlogBySlug(params.slug);
-        setPost(blogPost);
-        
-        // Fetch related posts
-        const allBlogs = await BlogService.getAllBlogs();
-        const related = allBlogs
-          .filter(b => b.category === blogPost?.category && b.slug !== blogPost?.slug)
-          .slice(0, 2);
-        setRelatedPosts(related);
+        const [realPost, allBlogs] = await Promise.all([
+          BlogService.getBlogBySlug(params.slug),
+          BlogService.getAllBlogs(),
+        ]);
+
+        if (realPost) {
+          setPost(realPost);
+          setIsMockPost(false);
+
+          // Related: same category, different slug, max 2
+          const source = allBlogs.length > 0 ? allBlogs : BlogService.getMockBlogs();
+          const related = source
+            .filter((b) => b.category === realPost.category && b.slug !== realPost.slug)
+            .slice(0, 2);
+          setRelatedPosts(related);
+        } else {
+          // API returned nothing — check if the mock even has this slug
+          const mockMatch = BlogService.getMockBlogBySlug(params.slug);
+          if (!mockMatch || mockMatch.slug !== params.slug) {
+            setNotFound(true);
+          }
+        }
       } catch (error) {
         console.error('Error fetching post:', error);
       } finally {
-        setLoading(false);
+        setIsSwapping(false);
       }
     };
 
     fetchPost();
   }, [params.slug]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50">
-        <div className="text-center">
-          <div className="relative w-20 h-20 mx-auto mb-4">
-            <div className="absolute inset-0 rounded-full border-4 border-[#50a7c3]/20"></div>
-            <div className="absolute inset-0 rounded-full border-4 border-t-[#50a7c3] animate-spin"></div>
-          </div>
-          <p className="text-gray-600">Loading article...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!post) {
+  if (notFound) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50">
         <div className="text-center max-w-md mx-auto px-4">
@@ -61,8 +64,8 @@ export default function BlogPostPage() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Article Not Found</h1>
           <p className="text-gray-600 mb-8">The article you're looking for doesn't exist or has been moved.</p>
-          <Link 
-            href="/blog" 
+          <Link
+            href="/blog"
             className="inline-flex items-center gap-2 bg-[#50a7c3] text-white px-6 py-3 rounded-xl font-medium hover:bg-[#3d8aa3] transition-all group shadow-lg hover:shadow-xl"
           >
             <ArrowLeft className="w-8 h-8 group-hover:-translate-x-1 transition-transform" />
@@ -74,24 +77,43 @@ export default function BlogPostPage() {
 
   return (
     <>
-      {/* Hero Section with Gradient - Centered */}
+      {/* Subtle swap indicator */}
+      {isSwapping && (
+        <div className="fixed top-4 right-4 z-50 bg-white shadow-md rounded-full px-4 py-2 flex items-center gap-2 text-xs text-gray-500">
+          <span className="animate-spin inline-block w-3 h-3 border border-[#50a7c3] border-t-transparent rounded-full" />
+          Loading latest…
+        </div>
+      )}
+
+      {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 to-gray-800 py-20 overflow-hidden">
-        {/* Background pattern */}
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-[#50a7c3] opacity-[0.02]" />
           <div className="absolute -left-20 top-20 w-40 h-40 border-2 border-[#50a7c3] opacity-10 rotate-12" />
           <div className="absolute -right-20 bottom-20 w-60 h-60 border-2 border-[#50a7c3] opacity-10 -rotate-12" />
         </div>
 
+        {/* Hero image overlay if real post has one */}
+        {post.image && !isMockPost && (
+          <div className="absolute inset-0">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className="object-cover opacity-10"
+              unoptimized
+            />
+          </div>
+        )}
+
         <div className="container mx-auto px-4 relative z-10">
-          {/* Back link - still left aligned for usability */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="mb-8"
           >
-            <Link 
+            <Link
               href="/blog"
               className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors group"
             >
@@ -99,7 +121,15 @@ export default function BlogPostPage() {
             </Link>
           </motion.div>
 
-          {/* Centered Content */}
+          {/* Placeholder badge — remove before production */}
+          {isMockPost && (
+            <div className="flex justify-center mb-4">
+              <span className="bg-yellow-400/20 text-yellow-300 text-xs px-3 py-1 rounded-full">
+                Showing placeholder — loading real article…
+              </span>
+            </div>
+          )}
+
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -127,20 +157,24 @@ export default function BlogPostPage() {
               className="flex flex-wrap items-center justify-center gap-6 text-gray-300"
             >
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-[#50a7c3]/20 flex items-center justify-center">
-                  <User className="w-5 h-5 text-[#50a7c3]" />
+                <div className="w-10 h-10 rounded-full bg-[#50a7c3]/20 flex items-center justify-center overflow-hidden">
+                  {post.authorImage && !isMockPost ? (
+                    <Image src={post.authorImage} alt={post.author} width={40} height={40} className="object-cover" unoptimized />
+                  ) : (
+                    <User className="w-5 h-5 text-[#50a7c3]" />
+                  )}
                 </div>
                 <div className="text-left">
                   <p className="text-sm text-gray-400">Written by</p>
                   <p className="font-medium text-white">{post.author}</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-[#50a7c3]" />
                 <span>{post.date}</span>
               </div>
-              
+
               {post.readTime && (
                 <div className="flex items-center gap-2">
                   <Clock className="w-5 h-5 text-[#50a7c3]" />
@@ -155,7 +189,7 @@ export default function BlogPostPage() {
       {/* Content Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-5xl">
-          {/* Tags */}
+
           {post.tags && post.tags.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -166,10 +200,7 @@ export default function BlogPostPage() {
               <Tag className="w-5 h-5 text-[#50a7c3]" />
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
-                  >
+                  <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
                     #{tag}
                   </span>
                 ))}
@@ -177,7 +208,6 @@ export default function BlogPostPage() {
             </motion.div>
           )}
 
-          {/* Main Content with Styled Headings - Using Global Styles */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -193,31 +223,27 @@ export default function BlogPostPage() {
                 margin-bottom: 1rem !important;
                 line-height: 1.3 !important;
               }
-              
-              .blog-content h2:first-of-type {
-                margin-top: 0 !important;
-              }
-              
+              .blog-content h2:first-of-type { margin-top: 0 !important; }
               .blog-content p {
                 font-size: 1.125rem !important;
                 line-height: 1.8 !important;
                 color: #4B5563 !important;
                 margin-bottom: 1.5rem !important;
               }
-              
-              .blog-content p:last-of-type {
-                margin-bottom: 0 !important;
-              }
-              
-              .blog-content strong {
-                color: #50a7c3 !important;
-                font-weight: 600 !important;
+              .blog-content p:last-of-type { margin-bottom: 0 !important; }
+              .blog-content strong { color: #50a7c3 !important; font-weight: 600 !important; }
+              .blog-content img {
+                max-width: 100% !important;
+                height: auto !important;
+                border-radius: 12px !important;
+                margin: 2rem auto !important;
+                display: block !important;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
               }
             `}</style>
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </motion.div>
 
-          {/* Share Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -226,7 +252,7 @@ export default function BlogPostPage() {
           >
             <h3 className="text-lg font-semibold text-gray-900">Share this article</h3>
             <div className="flex gap-3">
-              <button className="w-10 h-10 rounded-full bg-gray-100 hover:bg-[#50a7c3] text-gray-600 hover:text-white transition-all flex items-center justify-center group">
+              <button className="w-10 h-10 rounded-full bg-gray-100 hover:bg-[#50a7c3] text-gray-600 hover:text-white transition-all flex items-center justify-center">
                 <Share2 className="w-4 h-4" />
               </button>
               <button className="w-10 h-10 rounded-full bg-gray-100 hover:bg-[#50a7c3] text-gray-600 hover:text-white transition-all flex items-center justify-center">
@@ -248,7 +274,6 @@ export default function BlogPostPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Related Articles</h2>
               <div className="w-20 h-1 bg-[#50a7c3] rounded-full mx-auto"></div>
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {relatedPosts.map((relatedPost, index) => (
                 <motion.article
@@ -259,16 +284,25 @@ export default function BlogPostPage() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#50a7c3] hover:shadow-xl transition-all group"
                 >
+                  {relatedPost.image && !relatedPost.isMock && (
+                    <div className="relative h-36 rounded-xl overflow-hidden mb-4">
+                      <Image
+                        src={relatedPost.image}
+                        alt={relatedPost.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        unoptimized
+                      />
+                    </div>
+                  )}
                   <span className="inline-block bg-[#50a7c3]/10 text-[#50a7c3] px-3 py-1 rounded-full text-xs mb-4">
                     {relatedPost.category}
                   </span>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#50a7c3] transition-colors">
                     {relatedPost.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                    {relatedPost.excerpt}
-                  </p>
-                  <Link 
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{relatedPost.excerpt}</p>
+                  <Link
                     href={`/blog/${relatedPost.slug}`}
                     className="inline-flex items-center gap-2 text-[#50a7c3] font-medium text-sm hover:gap-3 transition-all"
                   >
@@ -282,7 +316,6 @@ export default function BlogPostPage() {
         </section>
       )}
 
-      {/* Newsletter */}
       <Newsletter />
     </>
   );
