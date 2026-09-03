@@ -5,6 +5,7 @@ import CoreServices from "@/components/page/coreservices"
 import HowWeHelp from '@/components/page/howwehelp'
 import IndustriesWeServe from "@/components/page/industriesweserve"
 import Getintouch from "@/components/page/getintouch"
+import NewComponent from '@/components/new-component'
  
 export default function page() {
   return (
